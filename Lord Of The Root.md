@@ -48,6 +48,38 @@ komutunu çalıştırıyoruz.
 Web sitesini ziyaret ettiğimizde bir fotoğraf ve üzerinde yüzüğü mordora götüreceğim diye bir yazı yazmaktadır.
 Sitenin kaynak koduna bakıldığında sadece fotoğrafın tek satırlık img srcsi görülmüştür bu sayfadan bir şey elde edemeyeceğimiz anlaşılmıştır ve dizin keşfine geçilmiştir.
 
+<code>dirb http://192.168.56.104/1337 </code>
 
+komutu çalıştırılmıştır.
+
+![8](https://user-images.githubusercontent.com/32979760/115157993-ad6ae580-a094-11eb-9b54-0d622a0bab96.PNG)
+
+ve çıktıdan görebileceğimiz gibi images klasörü bulunmuştur, images klasöründeki dosyalar indirilmiş fotoğrafların kontrast ayarlarıyla oynanmış exiftool ve binwalk ile incelenmiştir.Bu araştırmalardan herhangi bir sonuç elde edilememiştir.Her CTF'de kontrol edilmesi gereken sayfalardan birisi olan robots.txt'ye bakılmıştır.
+
+![9](https://user-images.githubusercontent.com/32979760/115158146-7c3ee500-a095-11eb-9b45-17909bbb7b61.PNG)
+
+Yukarıdaki çıktıda gördüğümüz gibi bizi yine bir fotoğraf karşılamaktadır ve sayfanın kaynak koduna bakılmıştır.
+
+![10](https://user-images.githubusercontent.com/32979760/115158221-c7f18e80-a095-11eb-9922-1bc2baa26ef7.PNG)
+
+ve çıktıda göreceğimiz üzere bir şeyler bulduk. 2 defa encode edilmiş base64 formatında görüyoruz bunları decode ediyoruz.
+
+![11](https://user-images.githubusercontent.com/32979760/115158353-6978e000-a096-11eb-8116-c0e53f3953b3.PNG)
+
+çıktıda bulduğumuz dizine gidiyoruz.
+
+![12](https://user-images.githubusercontent.com/32979760/115158402-a04ef600-a096-11eb-9bcc-63fa18bd0910.PNG)
+
+ve bizi mordorun kapıları karşılıyor :) .
+Bu giriş sayfasında sql injection açığı olduğu düşünülmüştür ve gerekli testlere devam edilmiştir
+Burpu çalıştırıyoruz intercepti aktif edip post isteği atıyoruz ve buradaki isteği kaydediyoruz.
+
+![14](https://user-images.githubusercontent.com/32979760/115158581-882ba680-a097-11eb-8cf1-bb82d49f2071.PNG)
+
+buradaki isteği kaydettikten sonra text editör ile açıyoruz
+
+![15](https://user-images.githubusercontent.com/32979760/115158650-dc368b00-a097-11eb-8b65-d93c208f224c.PNG)
+
+gördüğünüz gibi usertest yazısının sonuna * karakteri eklenmiştir.Bu burp için post isteğinin, payloadların nereye gönderileceği belirtilmiştir.Dosyayı kaydedip kapatıyoruz.
 
 
