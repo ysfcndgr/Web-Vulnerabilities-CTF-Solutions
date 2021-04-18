@@ -116,10 +116,11 @@ bu çektiğimiz kullanıcı adı ve şifreleri bir text dosyasına yazıyoruz
 ![22](https://user-images.githubusercontent.com/32979760/115160052-d98b6400-a09e-11eb-9f03-4bd0fe7f4c3a.PNG)
 ![23](https://user-images.githubusercontent.com/32979760/115160053-da23fa80-a09e-11eb-98e5-cd5a4f84eb3e.PNG)
 
-Hangi kullanıcının ssh ile bağlanma yetkisi olup olmadığını bilmediğimiz için ssh servisine medua ile brut force denemesi yapacağız.
+Hangi kullanıcının ssh ile bağlanma yetkisi olup olmadığını bilmediğimiz için ssh servisine medusa ile brute force yapacağız.
 <code>medusa -h 192.168.56.104 -U users -P passwords -M ssh </code>
 
 ![24](https://user-images.githubusercontent.com/32979760/115160119-3a1aa100-a09f-11eb-8c9b-3f8abd14638d.PNG)
+
 Brute force atağımız sonuç verdi ve kullanıcı adı ve parolayı bulduk şimdi bu bilgilerle ssh bağlantısı yapıyoruz.
 
 <code>ssh smeagol@192.168.56.104 </code>
