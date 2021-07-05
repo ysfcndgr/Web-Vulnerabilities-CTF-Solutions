@@ -82,5 +82,35 @@ Since I entered 4444 in the port variable in the shell, I have to open the conne
 
 When I visited http://192.168.56.102/test/reverse.php from the address bar, the shell connection was opened.
 
+![18](https://user-images.githubusercontent.com/32979760/124521440-26f2b400-ddf8-11eb-866c-17242ba35626.PNG)
+
+We need to be root.We detect kernel version and operating system version.
+
+We find the appropriate exploit.
+https://www.exploit-db.com/exploits/37292
+
+![19](https://user-images.githubusercontent.com/32979760/124521646-fbbc9480-ddf8-11eb-8436-4badb48e1562.PNG)
+
+we upload the exploit.
+
+![20](https://user-images.githubusercontent.com/32979760/124522029-5d313300-ddfa-11eb-9c2e-e0a6bf0d54a7.PNG)
+
+we see the exploit failed
+
+We review the crondaily.
+
+![21](https://user-images.githubusercontent.com/32979760/124522114-b8632580-ddfa-11eb-9289-82cf385ffd4d.PNG)
+
+When we look here, we see that lighthttpd and chkrootkit services are running on a scheduled basis.
+We're looking at the chkrootkit version.
+
+![22](https://user-images.githubusercontent.com/32979760/124522212-1f80da00-ddfb-11eb-9aa5-bc4c565ba9c6.PNG)
+
+We see that the version is 0.49
+
+![23](https://user-images.githubusercontent.com/32979760/124522276-5bb43a80-ddfb-11eb-86f1-bcff8d03cd94.PNG)
+
+We found the appropriate exploit.
+
 
 
